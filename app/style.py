@@ -1,19 +1,21 @@
 import streamlit as st
-from config.settings import *
 
 def load_styles():
 
-    st.markdown(f'''
-    <style>
+    st.markdown(
+        '''
+        <style>
 
-    .stApp {{
-        background-color: {BACKGROUND_COLOR};
-        color: {TEXT_COLOR};
-    }}
+        .stApp {
+            background-color: #111827;
+            color: #F9FAFB;
+        }
 
-    h1,h2,h3 {{
-        color: {PRIMARY_COLOR};
-    }}
+        h1,h2,h3 {
+            color: #0A84FF;
+        }
 
-    </style>
-    ''', unsafe_allow_html=True)
+        </style>
+        ''',
+        unsafe_allow_html=True
+    )
