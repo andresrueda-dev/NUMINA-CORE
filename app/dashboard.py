@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+from engine.pattern_analyzer import analyze_patterns
+
 def show_dashboard(df):
 
     st.subheader("Dataset Preview")
@@ -10,4 +12,22 @@ def show_dashboard(df):
         use_container_width=True
     )
 
-    st.line_chart(df.select_dtypes("number"))
+    st.markdown("---")
+
+    st.subheader("Pattern Frequency")
+
+    patterns = analyze_patterns(df)
+
+    pattern_df = pd.DataFrame(
+        patterns,
+        columns=["Number","Frequency"]
+    )
+
+    st.dataframe(
+        pattern_df,
+        use_container_width=True
+    )
+
+    st.bar_chart(
+        pattern_df.set_index("Number")
+    )
