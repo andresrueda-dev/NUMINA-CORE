@@ -1,5 +1,7 @@
 import streamlit as st
 
+from app.styles import load_styles
+from app.visualizer import show_header
 from app.upload import upload_dataset
 from app.dashboard import show_dashboard
 
@@ -8,7 +10,11 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("NUMINA CORE")
+load_styles()
+
+show_header()
+
+st.markdown("---")
 
 df = upload_dataset()
 
@@ -18,4 +24,6 @@ if df is not None:
 
 else:
 
-    st.info("Upload a dataset")
+    st.info(
+        "Upload a dataset to begin analysis"
+    )
