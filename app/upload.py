@@ -9,7 +9,11 @@ def upload_dataset():
     )
 
     if uploaded:
+
         df = pd.read_csv(uploaded)
+
         return df
+
+    return None
 
     return None
