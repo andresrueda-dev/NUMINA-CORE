@@ -1,15 +1,21 @@
 import streamlit as st
-import pandas as pd
 
-def upload_dataset():
+from app.upload import upload_dataset
+from app.dashboard import show_dashboard
 
-    uploaded = st.file_uploader(
-        "Upload CSV Dataset",
-        type=["csv"]
-    )
+st.set_page_config(
+    page_title="NUMINA CORE",
+    layout="wide"
+)
 
-    if uploaded:
-        df = pd.read_csv(uploaded)
-        return df
+st.title("NUMINA CORE")
 
-    return None
+df = upload_dataset()
+
+if df is not None:
+
+    show_dashboard(df)
+
+else:
+
+    st.info("Upload a dataset")
