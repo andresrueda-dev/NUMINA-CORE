@@ -15,5 +15,3 @@ def upload_dataset():
         return df
 
     return None
-
-    return None
