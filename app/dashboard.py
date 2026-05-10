@@ -1,5 +1,16 @@
 import streamlit as st
 import pandas as pd
+import sys
+import os
+
+sys.path.append(
+    os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+            ".."
+        )
+    )
+)
 
 from engine.pattern_analyzer import analyze_patterns
 
@@ -20,7 +31,7 @@ def show_dashboard(df):
 
     pattern_df = pd.DataFrame(
         patterns,
-        columns=["Number","Frequency"]
+        columns=["Number", "Frequency"]
     )
 
     st.dataframe(
